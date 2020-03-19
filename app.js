@@ -14,7 +14,7 @@ serialport.list((err, ports) => {
 
     ports.forEach(element => {
         //console.log(element)
-        if (element.manufacturer.includes('Arduino')) {
+        if (element.manufacturer && element.manufacturer.includes('Arduino')) {
             console.log("Arduino Path ", element.comName)
             port = new serialport(element.comName, {
                 baudRate: 115200
